@@ -1,0 +1,167 @@
+////////// index.html //////////
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<title>My Personal Website</title>
+  
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> 
+  
+<!-- Stylesheet -->
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- Canvas -->  
+<canvas id="matrix"></canvas>
+
+<!-- Header with nav-->
+<header>
+
+<h1>MOHAMED ALSALMAN</h1>
+
+<nav>
+  <a href="/">Home</a>
+  <a href="/about.html">About</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/contact.html">Contact</a> 
+</nav>
+
+</header>
+
+<!-- Hero -->
+<section id="hero">
+
+<img src="images/matrix-code.png" alt="Matrix Code">
+
+<h2>Hacker. Developer. Matrix Surfer.</h2>
+
+</section>  
+
+<!-- About -->
+<section id="about">
+
+<h2>About Me</h2>
+
+<img src="images/profile.jpg" alt="Profile Picture">
+
+<p>Background information...</p>
+
+</section>
+
+<!-- Footer -->
+<footer>
+...
+</footer>
+
+<!-- Scripts -->  
+<script src="script.js"></script>
+
+</body>
+</html>
+
+////////// style.css ////////////
+
+
+/* Fonts */
+body {
+  font-family: 'Orbitron', sans-serif;
+  color: #0F0; /* Neon Green */
+}
+
+/* Background */
+body {
+  background-color: #000; 
+  background: url('images/matrix-bg.jpg');
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Navigation */
+nav a {
+  color: #0F0;
+  text-decoration: none;
+  padding: 10px;
+}
+
+/* Sections */
+section {
+  padding: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+}
+
+
+
+
+
+/* Background */
+body {
+  background: url('images/matrix-bg.jpg'); 
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#hero img {
+  width: 300px;
+}
+
+/* Other Styles */
+
+
+/////////// script.js ///////////******************
+
+
+// Matrix Animation  
+
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+const chars = '001010101010011010101000111010101101'; 
+
+// Draw animation
+function draw() {
+  ctx.fillStyle = '#0F0';
+  
+  for(let i = 0; i < 100; i++) {
+    ctx.fillText(chars.charAt(Math.floor(Math.random() * chars.length)), Math.random() * canvas.width, Math.random() * canvas.height);
+  }
+}
+  
+// Animate  
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  draw();
+
+  requestAnimationFrame(animate);
+}
+
+animate();/* Canvas */
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
